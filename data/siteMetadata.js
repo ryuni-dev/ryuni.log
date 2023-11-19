@@ -6,7 +6,7 @@ const siteMetadata = {
   description: 'Connecting the dots',
   language: 'ko-kr',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
+  siteUrl: 'https://www.ryuni.dev/',
   siteRepo: 'https://github.com/ryuni-dev/ryuni.log',
   siteLogo: '/static/images/frog.png',
   socialBanner: '/static/images/twitter-card.png',
@@ -40,7 +40,7 @@ const siteMetadata = {
   newsletter: {
     // supports mailchimp, buttondown, convertkit, klaviyo, revue, emailoctopus
     // Please add your .env file and modify it according to your selection
-    provider: 'buttondown',
+    // provider: 'buttondown',
   },
   comments: {
     // If you want to use an analytics provider you have to add it to the
