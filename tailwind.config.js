@@ -1,6 +1,7 @@
 // @ts-check
 const { fontFamily } = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
+const { Nanum_Gothic, Nanum_Pen_Script } = require('next/font/google')
 
 /** @type {import("tailwindcss/types").Config } */
 module.exports = {
@@ -22,10 +23,11 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
+        // sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
+        sans: Nanum_Pen_Script,
       },
       colors: {
-        primary: colors.pink,
+        primary: colors.green,
         gray: colors.gray,
       },
       typography: ({ theme }) => ({
@@ -46,7 +48,7 @@ module.exports = {
               fontWeight: '600',
             },
             code: {
-              color: theme('colors.indigo.500'),
+              color: theme('colors.teal.500'),
             },
           },
         },
