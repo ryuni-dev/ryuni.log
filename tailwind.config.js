@@ -23,8 +23,8 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        // sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
-        sans: Nanum_Pen_Script,
+        sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
+        // nanumGodic: Nanum_Pen_Script,
       },
       colors: {
         primary: colors.green,
