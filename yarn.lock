@@ -7264,22 +7264,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"kbar@npm:0.1.0-beta.43":
-  version: 0.1.0-beta.43
-  resolution: "kbar@npm:0.1.0-beta.43"
-  dependencies:
-    "@radix-ui/react-portal": ^1.0.1
-    fast-equals: ^2.0.3
-    fuse.js: ^6.6.2
-    react-virtual: ^2.8.2
-    tiny-invariant: ^1.2.0
-  peerDependencies:
-    react: ^16.0.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
-  checksum: cb3eee56295cd6697149ca083ae42957dccbc15cc52b9fbe62b4ebb6e7e3613a812ed8a0083e81be7aadcb85e22d007a59ac5cee25e0a0caa4ba4c95bb5606c8
-  languageName: node
-  linkType: hard
-
 "kbar@npm:0.1.0-beta.44":
   version: 0.1.0-beta.44
   resolution: "kbar@npm:0.1.0-beta.44"
