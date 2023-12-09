@@ -1,9 +1,9 @@
 ---
 title: '새 블로그를 단장했습니다!'
-date: 2023-11-19
-lastmod: '2023-11-19'
+date: 2023-12-09
+lastmod: '2023-12-09'
 tags: ['blog']
-draft: true
+draft: false
 summary: 'Velog를 쓰다 직접 블로그를 만들게 된 사연'
 layout: PostSimple
 authors: ['default']
@@ -11,13 +11,13 @@ authors: ['default']
 
 # 나만의 기술 블로그 만들기!
 
-기존에도 velog라는 플랫폼을 통해서 [블로그](https://velog.io/@ryuni)를 작성하고 있었습니다. 물론 글을 많이 작성하진 않았지만 블로그를 운영하면서 여러 아쉬움이 있었습니다.
+기존에도 velog라는 플랫폼을 통해서 [블로그](https://velog.io/@ryuni)를 작성하고 있었습니다. 물론 글을 많이 작성하진 않았지만 기존 블로그를 운영하면서 여러 아쉬움이 있었습니다.
 
 ## 기존 블로그의 아쉬움
 
 ### 1. 기존의 블로그는 velog라는 플랫폼에 너무 종속되어 있다.
 
-사실 velog가 잘 만든 플랫폼이긴 하지만 너무 여기에 종속되어 있는 느낌이 들어 오히려 글을 쓰기 꺼려지더라구요. 그래서 이 플랫폼에서 벗어난 블로그를 만들고 싶었습니다.
+사실 velog가 잘 만든 플랫폼이긴 하지만 너무 여기에 종속되어 있는 느낌이 들어 오히려 글을 쓰기 꺼려지더라고요. 그래서 이 플랫폼에서 벗어난 블로그를 만들고 싶었습니다.
 
 ### 2. 나만의 도메인을 달고 싶다!
 
@@ -25,57 +25,98 @@ authors: ['default']
 
 ### 3. mdx를 사용하고 싶다!
 
-mdx를 사용하면 JS를 이용해서 여러 컴포넌트를 쉽게 만들고 적용할 수 있어서 글을 쓸 때 더 예쁘게 꾸밀 수 있었습니다! 예를 들면 이런 형광펜도 가능합니다ㅎㅎ!
+mdx를 사용하면 JS를 이용해서 여러 컴포넌트를 쉽게 만들고 적용할 수 있어서 글을 쓸 때 더 예쁘게 꾸밀 수 있었습니다! 예를 들면 <Highlight>이런 형광펜</Highlight>도 가능합니다ㅎㅎ!
 
-이러한 아쉬움들이 있어 그동안 여러 블로그 템플릿들을 찾아보다가 맘에 드는 템플릿을 발견하여 바로 개설하게 되었습니다! [Next.JS와 tailwindcss로 만들어진 템플릿](https://github.com/timlrx/tailwind-nextjs-starter-blog)이라 커스텀하기 용이했고 vercel로 배포하면 비용도 안들이고 배포할 수 있어서 딱이였습니다!
+```
+'use client'
+
+const Highlight = ({ children }) => {
+  return (
+    <span
+      style={{
+        backgroundColor: '#00D959',
+        color: '#000000',
+        padding: '0.2rem',
+        fontWeight: 'bold',
+      }}
+    >
+      {children}
+    </span>
+  )
+}
+
+export default Highlight
+```
+
+이러한 아쉬움들이 있어 그동안 여러 블로그 템플릿들을 찾아보다가 맘에 드는 템플릿을 발견하여 바로 개설하게 되었습니다! [Next.JS와 tailwindcss로 만들어진 템플릿](https://github.com/timlrx/tailwind-nextjs-starter-blog)이라 커스텀 하기 용이했습니다. 더불어 vercel을 활용하면 비용을 안 들이고 배포할 수 있죠!
 
 ## Let's Start Setting My Blog!
 
 ### 기본적인 metadata 설정
 
-해당 템플릿의 README를 보면 아시겠지만 기본적으로 설정해줘야 하는 metadata가 있습니다. `data/siteMetadata.json`에 본인에 맞게 수정해주면 됩니다.
+해당 템플릿의 README를 보면 아시겠지만 기본적으로 설정해 줘야 하는 metadata가 있습니다. `data/siteMetadata.json`에 본인에 맞게 수정해 주면 됩니다.
 
 ### CSS 및 이미지(logo, favicon) 수정
 
-사실 기존 템플릿을 거의 안건들이고 CSS 정도만 수정했는데요, 메인 색상만 수정하고 로고는 figma로 직접 만들었습니다. 어떻게 만들까 하다가 갑자기 해시태그가 생각나서 그걸로 만들었어요ㅎㅎ! 이렇게 만든 로고를 활용해서 favicon까지 만들어줍니다.
+![figma](/static/images/blog/migration-to-new-blog/figma.png)
 
-### 도메인 구매
-
-자! 이 블로그를 만들게 된 계기이기도 한 저만의 도메인을 새로 구매해줍시다! 저는 namecheap이라는 곳에서 구매를 했고 DNS 등록 또한 여기서 진행했습니다. 제가 구매한 도메인은 `.dev`인데 해당 도메인은 https가 필수라 SSL 인증서가 반드시 필요합니다. 물론 vercel에 SSL 인증서를 공짜로 발급받을 수 있습니다.
+사실 기존 템플릿을 거의 안건들이고 CSS 정도만 수정했는데요, 메인 색상만 수정하고 로고는 figma로 직접 만들었습니다. 어떻게 만들까 하다가 갑자기 해시태그가 생각나서 그걸로 만들었어요ㅎㅎ! 이렇게 만든 로고를 활용해서 favicon과 open graph까지 만들어줍니다.
 
 ### Vercel로 배포하기
 
-Vercel이라는 플랫폼에 이 블로그 repo를 배포해줍니다! 사실 DNS 등록을 위해선 이 작업이 선행되어야 하긴 합니다ㅎㅎ
+[Vercel](https://vercel.com/)이라는 플랫폼에 이 블로그 repo를 연결하고 배포해 줍니다! 그럼 자동으로 repository 이름을 딴 도메인이 생성되고 배포가 됩니다. 저의 경우엔 [https://ryuni-log.vercel.app/](https://ryuni-log.vercel.app/)이네요!
+
+### 도메인 구매
+
+자! 이 블로그를 만들게 된 계기이기도 한 저만의 도메인을 새로 구매해 줍시다! 저는 [Namecheap](https://www.namecheap.com/)이라는 곳에서 구매를 했고 DNS 등록 또한 여기서 진행했습니다. 제가 구매한 도메인은 `.dev`인데 해당 도메인은 https가 필수라 SSL 인증서가 반드시 필요합니다. 물론 vercel에 도메인을 등록하면 SSL 인증서를 공짜로 발급받을 수 있으니 굳이 Namecheap에서 돈을 지불하고 SSL 인증서를 발급받지 않아도 됩니다.
 
 ### DNS 등록
 
-이제 제 블로그도 배포가 되었고 제가 구매한 도메인으로 vercel에 배포한 제 블로그에 접속하기 위해선 DNS 등록을 해줘야 합니다! 여러가지 선택지가 있지만 공짜로 등록할 수 있는 namecheap을 사용했습니다!
+이제 제 블로그도 배포가 되었고 제가 구매한 도메인으로 vercel에 배포한 제 블로그에 접속하기 위해선 DNS 등록을 해줘야 합니다! 여러 가지 선택지가 있지만 공짜로 등록할 수 있는 [Namecheap](https://www.namecheap.com/) 사용했습니다!
+
+먼저 vercel에 들어가서 `project/setting/domains` 탭으로 들어간 뒤 앞서 구입한 도메인을 등록해 줍니다! 그러면 등록이 필요한 DNS records가 뜨게 되는데 이를 사용하려는 DNS 사이트에 가서 등록해 주면 됩니다.
+
+![namecheap](/static/images/blog/migration-to-new-blog/namecheap.png)
+
+저는 namecheap을 사용하기에 구입한 도메인 대시보드에 들어간 뒤 `advanced DNS` 탭에 들어가 records를 그대로 추가해 주면 됩니다. 약간의 시간이 지나면 연결이 잘 되는 걸 확인할 수 있을거예요.
 
 ### 기타 잡다한 설정
 
-#### umami 설정
+#### [umami](https://umami.is/) 설정
 
-이건 해당 템플릿에 이미 구현된 사이트 분석 툴입니다. umami에 가입해서 등록하고 API 키만 env에 넣어주시면 돼요!
+![umami](/static/images/blog/migration-to-new-blog/umami.png)
 
-#### Disqus 설정
+이건 해당 템플릿에 이미 구현된 사이트 분석 툴입니다. [umami](https://umami.is/)에 가입해서 등록하고 API 키만 env에 넣어주시면 돼요!
 
-마지막으로 댓글까지 달아줍시다! 이미 템플릿에 구현된 기능이라 어렵지 않습니다.
+참고로 vercel에 env를 등록하기 위해선 `project/settings/environment-variables`에 들어가서 등록하면 됩니다.
 
-## Issue
+#### [Giscus](https://giscus.app/ko) 설정
 
-### kbar 한글 입력 문제
+마지막으로 댓글까지 연동해 줍니다! 이미 템플릿에 구현된 기능이라 어렵지 않습니다.
 
-모바일에선 괜찮은데 (아이폰 사파리 기준) MAC에서 크롬으로 접속했을 때 검색창에 한글이 자모가 깨져서 입력되는 문제가 있었습니다. 해당 라이브러리의 이슈를 찾아보니 이미 이슈가 등록되어 버그 픽스가 진행 중이었기에 버그가 고쳐진 버전의 배포를 기다리고 있습니다.
+![Activate discussions](/static/images/blog/migration-to-new-blog/discussions.png)
 
-## 앞으로 계획 중인 것들
+먼저 repository를 public으로 바꿔준 뒤 discussions을 활성화해 줍니다.
 
-일단 꼭 필요한 것들은 모두 구축했습니다. 운영하면서 필요하다고 느끼는 기능들은 더 추가할 예정입니다! 일단 아래의 기능들을 생각하고 있습니다.
+그다음 [이곳](https://github.com/apps/giscus)에 들어가 해당 repo에 giscus를 설치해 줍니다.
 
-- 뉴스레터
-- 메인 화면 꾸미기
+![giscus](/static/images/blog/migration-to-new-blog/giscus.png)
+
+마지막으로 [giscus](https://giscus.app/ko) 사이트에서 필요한 정보를 넣으면 아래와 같이 스크립트가 뜨게 됩니다.
+
+![giscus2](/static/images/blog/migration-to-new-blog/giscus2.png)
+
+```
+NEXT_PUBLIC_GISCUS_REPO=
+NEXT_PUBLIC_GISCUS_REPOSITORY_ID=
+NEXT_PUBLIC_GISCUS_CATEGORY=
+NEXT_PUBLIC_GISCUS_CATEGORY_ID=
+```
+
+이 4개의 env만 다시 등록을 해주면 설정이 끝나게 됩니다.
 
 ## 블로그 운영 계획
 
-제 개인적인 일상용 블로그는 네이버 블로그로 분리해두고 새로 만든 [ryuni log](https://www.ryuni.dev/)는 기술 블로그 겸 업무에 대한 회고용으로 사용할 예정입니다. 기존에 velog에 작성한 글들을 모두 이전해 올지는 고민이지만 앞으로 작성하는 모든 글은 여기에 올릴 예정입니다.
+제 개인적인 일상용 블로그는 네이버 블로그로 분리해두고 새로 만든 [ryuni log](https://www.ryuni.dev/)는 기술 블로그 겸 회고용으로 사용할 예정입니다. 기존에 velog에 작성한 글들을 모두 이전해 올지는 고민이지만 앞으로 작성하는 모든 글은 여기에 올릴 예정입니다. 마침 글또 9기도 시작하게 되어서 이 기회에 꾸준히 글을 기고해 보려 합니다! 글또 9기와 관련된 내용은 다음에 게시할게요!
 
 앞으로 새로운 글들로 찾아뵐게요! 감사합니다:)
